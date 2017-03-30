@@ -1,0 +1,20 @@
+<div class="col-md-9">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>title</th>
+        <th>url</th>
+        <th>tag</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each links as |link|}}
+        <tr>
+          <td>{{link.title}}</td>
+          <td>{{link.url}}</td>
+          <td>{{link.author}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

@@ -1,45 +1,5 @@
 <div class="container">
   <h1>STASH</h1>
-  <form class="form-horizontal">
-    <div class="form-group">
-      <label for="" class="control-label col-sm-1">Title</label>
-      <div class="col-sm-7">
-        {{input class="form-control" placeholder="Dino Comics" value=title}}
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="" class="control-label col-sm-1">URL</label>
-      <div class="col-sm-7">
-        {{input class="form-control" placeholder="www.qwantz.com" value=url}}
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="" class="control-label col-sm-1">Tag</label>
-      <div class="col-sm-7">
-        {{input class="form-control" placeholder="funny" value=tag}}
-      </div>
-    </div>
-  </form>
-  <div class="row">
-    <div class="col-md-9">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>title</th>
-            <th>url</th>
-            <th>tag</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each model as |link|}}
-            <tr>
-              <td>{{link.title}}</td>
-              <td>{{link.url}}</td>
-              <td>{{link.author}}</td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-    </div>
-  </div>
+  {{add-link-form links=model}}
+  {{links-table links=model}}
 </div>
