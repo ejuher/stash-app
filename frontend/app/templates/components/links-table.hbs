@@ -9,7 +9,7 @@
     </thead>
     <tbody>
       {{#each links as |link|}}
-        <tr>
+        <tr {{action "goToLink" link}}>
           <td>{{link.title}}</td>
           <td>{{link.url}}</td>
           <td>{{link.author}}</td>
