@@ -4,15 +4,17 @@
       <tr>
         <th>title</th>
         <th>url</th>
-        <th>tag</th>
+        <th>author</th>
+        <th>createdAt</th>
       </tr>
     </thead>
     <tbody>
-      {{#each links as |link|}}
+      {{#each sortedLinks as |link|}}
         <tr {{action "goToLink" link}}>
           <td>{{link.title}}</td>
           <td>{{link.url}}</td>
           <td>{{link.author}}</td>
+          <td>{{link.createdAt}}</td>
         </tr>
       {{/each}}
     </tbody>
