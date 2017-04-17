@@ -2,8 +2,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>title</th>
-        <th>url</th>
+        <th></th>
         <th>createdAt</th>
         <th></th>
       </tr>
@@ -11,8 +10,8 @@
     <tbody>
       {{#each sortedLinks as |link|}}
         <tr {{action "goToLink" link}}>
-          <td>{{link.title}}</td>
-          <td>{{link.url}}</td>
+          <td><strong>{{link.title}}</strong><br>
+              <em>{{link.url}}</em></td>
           <td>{{link.createdAt}}</td>
           <td><i class="glyphicon glyphicon-ok"></i></td>
         </tr>
