@@ -21,6 +21,6 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: %i(url title author))
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: %i(url title tag))
   end
 end
