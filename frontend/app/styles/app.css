@@ -5,3 +5,7 @@ tr {
 .form-horizontal {
   margin-bottom: 40px;
 }
+
+.tag-emoji {
+  font-size: 24px;
+}
