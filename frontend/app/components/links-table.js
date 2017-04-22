@@ -17,7 +17,7 @@ export default Ember.Component.extend({
 
   actions: {
     goToLink(link) {
-      document.location.assign(link.get('url'));
+      window.open(link.get('url'));
     }
   }
 });
