@@ -2,6 +2,10 @@ tr {
   cursor: pointer;
 }
 
+.filter-buttons {
+  margin-bottom: 12px;
+}
+
 .form-horizontal {
   margin-bottom: 40px;
 }
