@@ -29,10 +29,9 @@ export default Ember.Component.extend({
   }),
 
   filteredSortedLinks: Ember.computed('sortedLinks', 'filters.[]', function() {
-    var that = this;
     if (!this.get('filters.length')) { return this.get('sortedLinks'); }
-    return this.get('sortedLinks').filter(function(link) {
-      return that.get('filters').includes(link.get('tag'));
+    return this.get('sortedLinks').filter((link) => {
+      return this.get('filters').includes(link.get('tag'));
     });
   }),
 
