@@ -15,7 +15,7 @@ export default Ember.Component.extend({
     return 0;
   }),
 
-  filteredSortedLinks: Ember.computed('sortedLinks', 'filters', function() {
+  filteredSortedLinks: Ember.computed('sortedLinks', 'filters.[]', function() {
     var that = this;
     return this.get('sortedLinks').filter(function(link) {
       return that.get('filters').includes(link.get('tag'));
@@ -28,7 +28,11 @@ export default Ember.Component.extend({
     },
 
     toggleFilter(filter) {
-      this.get('filters').addObject(filter);
+      if (this.get('filters').includes(filter)) {
+        this.get('filters').removeObject(filter);
+      } else {
+        this.get('filters').addObject(filter);
+      }
     }
   }
 });
