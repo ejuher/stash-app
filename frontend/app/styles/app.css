@@ -2,16 +2,26 @@ button:focus {
   outline:0 !important; 
 }
 
-tr {
-  cursor: pointer;
-}
-
 .filter-buttons {
   margin-bottom: 12px;
 }
 
 .form-horizontal {
   margin-bottom: 40px;
+}
+
+hr {
+  margin: 0px;
+}
+
+.link-row .row {
+  padding: 10px 0px;
+  color: #333;
+}
+
+.link-row:hover .row {
+  background-color: #f5f5f5;
+  cursor: pointer;
 }
 
 .tag-emoji {

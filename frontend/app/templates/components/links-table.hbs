@@ -10,20 +10,16 @@
      {{action "toggleFilter" "OTHER"}}>🤷‍</button>
    </div>
 </div>
-<div class="row">
-  <div class="col-md-9">
-    <table class="table table-hover">
-      <tbody>
-        {{#each filteredSortedLinks as |link|}}
-          <tr {{action "goToLink" link}}>
-            <td class="tag-emoji">{{link.tagEmoji}}</td>
-            <td><strong>{{link.title}}</strong><br>
-                <em>{{link.url}}</em></td>
-            <td>{{moment-format link.createdAt 'MM-DD-YYYY hh:mm a'}}</td>
-            <td><i class="glyphicon glyphicon-ok"></i></td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-</div>
+{{#each filteredSortedLinks as |link|}}
+  <hr>
+  <a href="{{link.url}}" target="_blank" class="link-row">
+    <div class="row">
+      <div class="col-sm-1 tag-emoji">{{link.tagEmoji}}</div>
+      <div class="col-sm-6">
+        <strong>{{link.title}}</strong><br>
+        <em>{{link.url}}</em>
+      </div>
+      <div class="col-sm-2">{{moment-format link.createdAt 'MM-DD-YYYY hh:mm a'}}</div>
+    </div>
+  </a>
+{{/each}}
