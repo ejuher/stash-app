@@ -14,6 +14,10 @@ hr {
   margin: 0px;
 }
 
+a.link-row:hover {
+  text-decoration: none;
+}
+
 .link-row .row {
   padding: 10px 0px;
   color: #333;
