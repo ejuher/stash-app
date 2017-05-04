@@ -5,6 +5,8 @@ export default Ember.Component.extend({
   classNames: ['form-horizontal'],
   store: Ember.inject.service(),
 
+  noUrl: Ember.computed.empty('url'),
+
   actions: {
     addLink(tag) {
       let store = this.get('store');
