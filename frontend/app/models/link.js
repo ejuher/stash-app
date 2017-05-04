@@ -19,7 +19,7 @@ export default DS.Model.extend({
     } else if (tag === 'ARTICLE') {
       return '📰';
     } else if (tag === 'OTHER') {
-      return '🤷‍';
+      return '💁🏼';
     }
   })
 });
