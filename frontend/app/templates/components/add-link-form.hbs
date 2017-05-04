@@ -13,9 +13,13 @@
 <div class="form-group">
   <label for="" class="control-label col-sm-1">Tag</label>
   <div class="col-sm-6">
-    {{input class="form-control" placeholder="funny" value=tag}}
-  </div>
-  <div class="col-sm-2">
-    <button class="btn btn-default" {{action "addLink"}}>Stash Link</button>
+    <button type="button" class="btn btn-default tag-emoji"
+     {{action "addLink" "AUDIO"}}>🎷</button>
+    <button type="button" class="btn btn-default tag-emoji"
+     {{action "addLink" "VIDEO"}}>📼</button>
+    <button type="button" class="btn btn-default tag-emoji"
+     {{action "addLink" "ARTICLE"}}>📰</button>
+    <button type="button" class="btn btn-default tag-emoji"
+     {{action "addLink" "OTHER"}}>🤷‍</button>
   </div>
 </div>

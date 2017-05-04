@@ -6,12 +6,12 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   actions: {
-    addLink() {
+    addLink(tag) {
       let store = this.get('store');
       let link = store.createRecord('link', {
         title: this.get('title'),
         url: this.get('url'),
-        tag: this.get('tag')
+        tag: tag
       });
       link.save().then(function() {
         return;
