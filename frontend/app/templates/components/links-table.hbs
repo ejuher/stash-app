@@ -19,7 +19,9 @@
         <strong>{{link.title}}</strong><br>
         <em>{{link.url}}</em>
       </div>
-      <div class="col-sm-2">{{moment-format link.createdAt 'MM-DD-YYYY hh:mm a'}}</div>
+      {{#if link.hasCreatedAt}}
+        <div class="col-sm-2">{{moment-format link.createdAt 'MM-DD-YYYY hh:mm a'}}</div>
+      {{/if}}
     </div>
   </a>
 {{/each}}

@@ -6,16 +6,20 @@ export default DS.Model.extend({
   tag: DS.attr('string'),
   createdAt: DS.attr('date', { serialize: false }), // not working :<
 
-  tagEmoji: Em.computed('tag', function() {
-    let tag = this.get('tag')
+  hasCreatedAt: Ember.computed('createdAt', function() {
+    return this.get('createdAt') != undefined;
+  }),
+
+  tagEmoji: Ember.computed('tag', function() {
+    let tag = this.get('tag');
     if (tag === 'AUDIO') {
-      return '🎷'
+      return '🎷';
     } else if (tag === 'VIDEO') {
-      return '📼'
+      return '📼';
     } else if (tag === 'ARTICLE') {
-      return '📰'
+      return '📰';
     } else if (tag === 'OTHER') {
-      return '🤷‍'
+      return '🤷‍';
     }
   })
 });

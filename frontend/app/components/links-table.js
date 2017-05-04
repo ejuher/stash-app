@@ -17,15 +17,9 @@ export default Ember.Component.extend({
   }),
 
   sortedLinks: Ember.computed.sort('links', function(a, b) {
-    // b.createdAt is not defined at the instant the link is created
-    if (b.get('createdAt') === undefined || b.get('createdAt').getTime() > a.get('createdAt').getTime()) {
-      // b comes before a
-      return 1; 
-    } else { 
-      // a comes before b
-      return -1;
-    }
-    return 0;
+    if (a.get('createdAt') === undefined) { return -1; } // a comes first
+    if (b.get('createdAt') === undefined) { return 1; } // b comes first
+    if (b.get('createdAt').getTime() > a.get('createdAt').getTime()) { return 1; } else { return -1; }
   }),
 
   filteredSortedLinks: Ember.computed('sortedLinks', 'filters.[]', function() {
