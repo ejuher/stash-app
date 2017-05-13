@@ -7,7 +7,7 @@ export default DS.Model.extend({
   createdAt: DS.attr('date', { serialize: false }), // not working :<
 
   hasCreatedAt: Ember.computed('createdAt', function() {
-    return this.get('createdAt') != undefined;
+    return this.get('createdAt') !== undefined;
   }),
 
   tagEmoji: Ember.computed('tag', function() {
