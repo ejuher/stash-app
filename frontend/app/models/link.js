@@ -4,7 +4,8 @@ export default DS.Model.extend({
   url: DS.attr('string'),
   title: DS.attr('string'),
   tag: DS.attr('string'),
-  createdAt: DS.attr('date', { serialize: false }), // not working :<
+  createdAt: DS.attr('date'),
+  archived: DS.attr('boolean', { defaultValue: false }),
 
   hasCreatedAt: Ember.computed('createdAt', function() {
     return this.get('createdAt') !== undefined;
