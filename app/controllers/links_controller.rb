@@ -3,9 +3,6 @@ class LinksController < ApplicationController
     render json: Link.all
   end
 
-  def show
-  end
-
   def create
     @link = Link.new(link_params)
     if @link.save
@@ -15,12 +12,15 @@ class LinksController < ApplicationController
     end
   end
 
-  def destroy
+  def update
+    @link = Link.find(params[:id])
+    @link.update!(link_params)
+    render json: @link
   end
 
   private
 
   def link_params
-    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: %i(url title tag))
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: %i(url title tag archived))
   end
 end

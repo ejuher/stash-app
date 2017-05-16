@@ -1,3 +1,7 @@
+.archive-button {
+  display: none;
+}
+
 button:focus { 
   outline:0 !important; 
 }
@@ -26,6 +30,10 @@ a.link-row:hover {
 .link-row:hover .row {
   background-color: #f5f5f5;
   cursor: pointer;
+}
+
+.link-row:hover .row .archive-button {
+  display: block;
 }
 
 .tag-emoji {
