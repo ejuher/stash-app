@@ -15,8 +15,8 @@ export default Ember.Component.extend({
         url: this.get('url'),
         tag: tag
       });
-      link.save().then(function() {
-        return;
+      link.save().then(() => {
+        this.set('url', '');
       },
       function(res) {
         link.deleteRecord();
