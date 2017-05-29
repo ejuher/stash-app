@@ -19,6 +19,10 @@ export default DS.Model.extend({
       return '📼';
     } else if (tag === 'ARTICLE') {
       return '📰';
+    } else if (tag === 'EVENT') {
+      return '📅';
+    } else if (tag === 'PURCHASE') {
+      return '🛒';
     } else if (tag === 'OTHER') {
       return '💁🏼';
     }
