@@ -6,6 +6,12 @@ button:focus {
   outline:0 !important; 
 }
 
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .filter-buttons {
   margin-bottom: 12px;
 }
@@ -34,6 +40,10 @@ a.link-row:hover {
 
 .link-row:hover .row .archive-button {
   display: block;
+}
+
+.row div:hover {
+  white-space: normal;
 }
 
 .tag-emoji {
