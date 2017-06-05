@@ -1,6 +1,11 @@
 class LinksController < ApplicationController
   def index
-    render json: Link.all
+    if params.dig(:filter, :last_link_id)
+      last_link = Link.find(params[:filter][:last_link_id])
+      render json: Link.where(archived: false).where('created_at > ?', last_link.created_at)
+    else
+      render json: Link.where(archived: false)
+    end
   end
 
   def create
