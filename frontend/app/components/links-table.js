@@ -2,18 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   filters: [],
-  newLinks: [],
+  newLinksCount: 0,
   showArchived: false,
   store: Ember.inject.service(),
 
   didRender() {
     setInterval(() => {
-      const lastLinkId = this.get('sortedLinks.firstObject.id');
-      const store = this.get('store');
-      store.query('link', { filter: { last_link_id: lastLinkId } }).then((links) => {
-        this.set("newLinks", links);
-      });
-    }, 6000)
+      let lastLinkId = this.get('sortedLinks.firstObject.id');
+      $.get(`links/new_links_count/${lastLinkId}`, (data) =>
+        this.set('newLinksCount', data.new_links_count);
+      );
+    }, 6000);
   },
 
   // try putting all the new link stuff into its own component
