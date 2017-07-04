@@ -9,18 +9,11 @@ export default Ember.Component.extend({
   didRender() {
     setInterval(() => {
       let lastLinkId = this.get('sortedLinks.firstObject.id');
-      $.get(`links/new_links_count/${lastLinkId}`, (data) =>
+      $.get(`links/new_links_count/${lastLinkId}`, (data) => {
         this.set('newLinksCount', data.new_links_count);
-      );
+      });
     }, 6000);
   },
-
-  // try putting all the new link stuff into its own component
-  // give the component the links variable, the component must compute the startTime from that list
-  // does it need to be a computed property. it should work: try it.
-  // when newLinks isnt empty, display the newLinks bar with a count of newLinks.length
-  // "View #{newLinks.length} new links"
-  // when the newLinks bar is clicked on, add all the newLinks to links, then set newLinks to empty array
 
   audioActive: Ember.computed('filters.[]', function() {
     return this.get('filters').includes('AUDIO');
