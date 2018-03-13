@@ -4,20 +4,27 @@
     {{input class="form-control" placeholder="www.qwantz.com" value=url}}
   </div>
 </div>
-<div class="form-group">
-  <label for="" class="control-label col-sm-1">Tag</label>
-  <div class="col-sm-6">
-    <button type="button" class="btn btn-default tag-emoji" disabled={{noUrl}}
-     {{action "addLink" "AUDIO"}}>🎷</button>
-    <button type="button" class="btn btn-default tag-emoji" disabled={{noUrl}}
-     {{action "addLink" "VIDEO"}}>📼</button>
-    <button type="button" class="btn btn-default tag-emoji" disabled={{noUrl}}
-     {{action "addLink" "ARTICLE"}}>📰</button>
-    <button type="button" class="btn btn-default tag-emoji" disabled={{noUrl}}
-     {{action "addLink" "EVENT"}}>📅</button>
-    <button type="button" class="btn btn-default tag-emoji" disabled={{noUrl}}
-     {{action "addLink" "PURCHASE"}}>🛒</button>
-    <button type="button" class="btn btn-default tag-emoji" disabled={{noUrl}}
-     {{action "addLink" "OTHER"}}>💁🏼</button>
+{{#if urlExists}}
+  <div class="form-group">
+    <div class="col-sm-6">
+      <button type="button" class="btn btn-default tag-emoji" {{action "addLink" "AUDIO"}}>
+        🎷
+      </button>
+      <button type="button" class="btn btn-default tag-emoji" {{action "addLink" "VIDEO"}}>
+        📼
+      </button>
+      <button type="button" class="btn btn-default tag-emoji" {{action "addLink" "ARTICLE"}}>
+        📰
+      </button>
+      <button type="button" class="btn btn-default tag-emoji" {{action "addLink" "EVENT"}}>
+        📅
+      </button>
+      <button type="button" class="btn btn-default tag-emoji" {{action "addLink" "PURCHASE"}}>
+        🛒
+      </button>
+      <button type="button" class="btn btn-default tag-emoji" {{action "addLink" "OTHER"}}>
+        💁🏼
+      </button>
+    </div>
   </div>
-</div>
+{{/if}}
