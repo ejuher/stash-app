@@ -12,7 +12,7 @@ export default Ember.Component.extend({
       store.query('link', { filter: { last_link_id: lastLinkId } }).then((newLinks) => {
         this.get('links').addObjects(newLinks);
       });
-    }, 6000)
+    }, 6000);
   },
 
   audioActive: Ember.computed('filters.[]', function() {
@@ -40,9 +40,23 @@ export default Ember.Component.extend({
     });
   }),
 
-  filteredSortedLinks: Ember.computed('sortedLinks', 'filters.[]', function() {
-    if (!this.get('filters.length')) { return this.get('sortedLinks'); }
-    return this.get('sortedLinks').filter((link) => {
+  sortedLinksWithDateRows: Ember.computed('sortedLinks.[]', function() {
+    let links = [];
+    let lastDay = -1;
+    this.get('sortedLinks').forEach(function(link) {
+      let currentDay = link.get('createdAt').getDay();
+      if (currentDay !== lastDay) {
+        links.push(Ember.Object.create({title: `⬇️ ${currentDay} ⬇️`}));
+        lastDay = currentDay;
+      }
+      links.push(link);
+    });
+    return links;
+  }),
+
+  filteredSortedLinks: Ember.computed('sortedLinksWithDateRows', 'filters.[]', function() {
+    if (!this.get('filters.length')) { return this.get('sortedLinksWithDateRows'); }
+    return this.get('sortedLinksWithDateRows').filter((link) => {
       return this.get('filters').includes(link.get('tag'));
     });
   }),
