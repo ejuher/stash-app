@@ -46,7 +46,9 @@ export default Ember.Component.extend({
     this.get('sortedLinks').forEach(function(link) {
       let currentDay = link.get('createdAt').getDay();
       if (currentDay !== lastDay) {
-        links.push(Ember.Object.create({title: `⬇️ ${currentDay} ⬇️`}));
+        links.push(Ember.Object.create({
+          date: link.get('createdAt')
+        }));
         lastDay = currentDay;
       }
       links.push(link);
