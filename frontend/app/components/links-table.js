@@ -8,10 +8,12 @@ export default Ember.Component.extend({
   didRender() {
     setInterval(() => {
       const lastLinkId = this.get('sortedLinks.firstObject.id');
-      const store = this.get('store');
-      store.query('link', { filter: { last_link_id: lastLinkId } }).then((newLinks) => {
-        this.get('links').addObjects(newLinks);
-      });
+      if (lastLinkId) {
+        const store = this.get('store');
+        store.query('link', { filter: { last_link_id: lastLinkId } }).then((newLinks) => {
+          this.get('links').addObjects(newLinks);
+        });
+      }
     }, 6000);
   },
 
