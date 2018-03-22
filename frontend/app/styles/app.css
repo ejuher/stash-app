@@ -10,6 +10,7 @@ button:focus {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  min-height: 48px;
 }
 
 .filter-buttons {
@@ -18,6 +19,12 @@ button:focus {
 
 .form-horizontal {
   margin-bottom: 40px;
+}
+
+.day-separator {
+  padding: 10px 0px;
+  font-size: 20px;
+  background: linear-gradient(to top,aqua 0,yellow 33%,yellow 66%,aqua 100%);
 }
 
 hr {
