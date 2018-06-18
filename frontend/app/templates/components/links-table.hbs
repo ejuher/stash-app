@@ -37,7 +37,10 @@
           <div class="col-sm-2">{{moment-format link.createdAt 'MM-DD-YYYY hh:mm a'}}</div>
         {{/if}}
         <div class="col-sm-1 tag-emoji archive-button text-center">
-          <button type="button" class="btn btn-default tag-emoji" {{action "archiveLink" link}}>🗃</button>
+          <button type="button" class="btn btn-default tag-emoji" {{action "toggleFave" link}}>🌟</button>
+        </div>
+        <div class="col-sm-1 tag-emoji archive-button text-center">
+          <button type="button" class="btn btn-default tag-emoji" {{action "archive" link}}>🗃</button>
         </div>
       </div>
     </a>

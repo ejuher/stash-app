@@ -78,11 +78,16 @@ export default Ember.Component.extend({
       this.set('showArchived', !this.get('showArchived'));
     },
 
-    archiveLink(link) {
+    archive(link) {
       $(event.target.parentElement.parentElement).slideUp(function() {
         link.set('archived', true);
         link.save();
       });
+    },
+
+    toggleFave(link) {
+      link.set('faved', !link.get('faved'))
+      link.save();
     }
   }
 });
