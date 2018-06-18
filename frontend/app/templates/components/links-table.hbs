@@ -12,6 +12,8 @@
      {{action "toggleFilter" "PURCHASE"}}>🛒</button>
     <button type="button" class="btn btn-default tag-emoji {{if otherActive "active"}}"
      {{action "toggleFilter" "OTHER"}}>💁🏼</button>
+   <button type="button" class="btn btn-default tag-emoji {{if favedActive "active"}}"
+     {{action "toggleFilter" "FAVED"}}>🌟</button>
    </div>
 </div>
 {{#each filteredSortedLinks as |link|}}

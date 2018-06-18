@@ -29,6 +29,9 @@ export default Ember.Component.extend({
   otherActive: Ember.computed('filters.[]', function() {
     return this.get('filters').includes('OTHER');
   }),
+  favedActive: Ember.computed('filters.[]', function() {
+    return this.get('filters').includes('FAVED');
+  }),
 
   sortedLinks: Ember.computed.sort('archiveFilteredLinks', function(a, b) {
     if (a.get('createdAt') === undefined) { return -1; } // a comes first
@@ -59,10 +62,14 @@ export default Ember.Component.extend({
   }),
 
   filteredSortedLinks: Ember.computed('sortedLinksWithDateRows', 'filters.[]', function() {
-    if (!this.get('filters.length')) { return this.get('sortedLinksWithDateRows'); }
-    return this.get('sortedLinksWithDateRows').filter((link) => {
-      return this.get('filters').includes(link.get('tag'));
-    });
+    let links;
+    if (this.get('filters').includes('FAVED')) {
+      links = this.get('sortedLinksWithDateRows').filter((link) => { return link.get('faved'); });
+    } else {
+      links = this.get('sortedLinksWithDateRows')
+    }
+    if (!this.get('filters').without('FAVED').length) { return links; }
+    return links.filter((link) => { return this.get('filters').includes(link.get('tag')); });
   }),
 
   actions: {
