@@ -25,7 +25,10 @@
   {{else}}
     <a href="{{link.url}}" target="_blank" class="link-row">
       <div class="row">
-        <div class="col-sm-1 tag-emoji text-center">{{link.tagEmoji}}</div>
+        <div class="col-sm-1 tag-emoji text-right">
+          {{#if link.faved}}🌟{{/if}}         
+          {{link.tagEmoji}}
+        </div>
         <div class="col-sm-6 ellipsis">
           <strong>{{link.title}}</strong><br>
           <em>{{link.url}}</em>

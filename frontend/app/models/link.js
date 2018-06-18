@@ -6,6 +6,7 @@ export default DS.Model.extend({
   tag: DS.attr('string'),
   createdAt: DS.attr('date'),
   archived: DS.attr('boolean', { defaultValue: false }),
+  faved: DS.attr('boolean', { defaultValue: false }),
 
   hasCreatedAt: Ember.computed('createdAt', function() {
     return this.get('createdAt') !== undefined;
