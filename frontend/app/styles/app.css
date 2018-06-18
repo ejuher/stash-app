@@ -2,6 +2,10 @@
   display: none;
 }
 
+body {
+  background-color: #eee;
+}
+
 button:focus { 
   outline:0 !important; 
 }
