@@ -4,7 +4,7 @@ class LinksController < ApplicationController
       last_link = Link.find(params[:filter][:last_link_id])
       render json: Link.where(archived: false).where('created_at > ?', last_link.created_at)
     else
-      render json: Link.where(archived: false)
+      render json: Link.where(archived: false).where('created_at > ?', 1.year.ago)
     end
   end
 
